@@ -8,12 +8,12 @@
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: .2fr 1.5fr 1.2fr .8fr;
+    grid-template-rows: .3fr 3fr 2fr .2fr;
     grid-template-areas:
-        "nav nav nav nav"
+        "header header header header"
         "sidebar main main main"
-        "sidebar content1 content2 content3"
-        "sidebar footer footer footer";
+        "sidebar card1 card2 card3"
+        "footer footer footer footer";
     grid-gap: 0.2rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 800;
@@ -23,44 +23,61 @@
     text-align: center;
 }
 
-nav {
+.header {
     background: #a7ffeb;
-    grid-area: nav;
+    grid-area: header;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
 }
 
-main {
-    background: #84ffff;
+.main {
+    background: #68ff68;
     grid-area: main;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
 }
 
-#sidebar {
+.sidebar {
     background: #18ffff;
     grid-area: sidebar;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
+
 }
 
-#content1 {
+
+.menu-item {
+    border-bottom: 10px solid rgba(255, 255, 255, 0.07);
+    background-color: #70ffd4;
+    list-style-type: none;
+}
+
+.menu-item-link {
+    display: block;
+    padding: 1rem 2rem;
+    background: #1cffce;
+    color: #424a57;
+    text-decoration: none;
+    text-align: left;
+}
+
+#card1 {
     background: #6fffd2;
-    grid-area: content1;
+    grid-area: card1;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
 }
 
-#content2 {
+#card2 {
     background: #61ffcd;
-    grid-area: content2;
+    grid-area: card2;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
 }
 
-#content3 {
+#card3 {
     background: #4dffc6;
-    grid-area: content3;
+    grid-area: card3;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
 }
@@ -72,17 +89,19 @@ footer {
     padding-top: var(--main-padding);
 }
 
+
+/* Responsive design - change layout after minimum window width */
 @media only screen and (max-width:550px) {
     .container {
         grid-template-columns: 1fr;
-        grid-template-rows: .4fr .4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-rows: .4fr .4fr 2.2fr 1.2fr 1.2fr 1.2fr .2fr;
         grid-template-areas:
-            "nav"
+            "header"
             "sidebar"
             "main"
-            "content1"
-            "content2"
-            "content3"
+            "card1"
+            "card2"
+            "card3"
             "footer";
     }
 }
