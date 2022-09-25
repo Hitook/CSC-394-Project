@@ -1,5 +1,5 @@
 const { Pool, Client } = require('pg')
-const connectionString = 'psql postgres://postgres:potatoes@database-hw3.c7ndfrbojbla.us-east-2.rds.amazonaws.com'
+const connectionString = ''
 // currently connects to db setup for hw, will change later
 const pool = new Pool({
   connectionString,
