@@ -1,28 +1,14 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import UserBar from '../components/Userbar'
-import ItemsContext from '../context/items-context';
-import itemsReducer from '../reducers/items';
 import './App.css';
 
 function App() {
-  const [items, itemsDispatch] = useReducer(itemsReducer, []);
 
   const [user, setUser] = useState("");
 
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('items'));
-    if (items) {
-      itemsDispatch({ type: 'POPULATE_ITEMS', items });
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(items));
-  }, [items]);
-
   return (
 
-    <ItemsContext.Provider value={{ items, itemsDispatch }}>
+    <div>
       <div>
         <UserBar user={user} setUser={setUser} />
       </div>
@@ -31,7 +17,8 @@ function App() {
         <header className="App-header">
         </header>
       </div>
-    </ItemsContext.Provider>
+    </div>
+
   );
 }
 
